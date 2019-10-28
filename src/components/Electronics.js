@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import Pagination from 'react-hooks-paginator';
 
 export default () => {
-  const pageLimit = 5;
+  const pageLimit = 10;
 
   const [offset, setOffset] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const [data, setData] = useState([{ src: {} }]);
   const [currentData, setCurrentData] = useState([]);
 
@@ -49,7 +49,7 @@ export default () => {
       
       <div>
         {currentData.map(data => (
-          <ul key={data.src.id}>
+          <ul key={data.id}>
             <li>{data.name}</li>
             <img src={data.img} alt="" width="50" height="50" />
             <ReactPlayer url={data.src.id} />
